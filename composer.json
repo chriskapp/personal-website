@@ -1,13 +1,13 @@
 {
   "name": "psx/sample",
   "description": "PSX sample project",
-  "homepage": "http://phpsx.org",
+  "homepage": "https://phpsx.org",
   "license": "MIT",
   "authors": [
     {
       "name": "Christoph Kappestein",
       "email": "christoph.kappestein@gmail.com",
-      "homepage": "http://christoph.kappestein.com"
+      "homepage": "https://chrisk.app"
     }
   ],
   "require": {
