@@ -34,11 +34,43 @@ class Projects
                         'href' => 'https://github.com/apioo',
                         'description' => 'Github organisation which contains API related projects',
                     ],
+                ],
+                'github' => [
                     [
-                        'name' => 'GitHub',
+                        'name' => 'apioo/fusio',
                         'status' => 1,
-                        'href' => 'https://github.com/chriskapp',
-                        'description' => 'Personal Github account',
+                        'href' => 'https://github.com/apioo/fusio',
+                        'description' => 'Open source API management platform',
+                    ],
+                    [
+                        'name' => 'apioo/psx',
+                        'status' => 1,
+                        'href' => 'https://github.com/apioo/psx',
+                        'description' => 'PHP REST API Framework',
+                    ],
+                    [
+                        'name' => 'apioo/psx-schema',
+                        'status' => 1,
+                        'href' => 'https://github.com/apioo/psx-schema',
+                        'description' => 'Parse and generate data schema formats',
+                    ],
+                    [
+                        'name' => 'apioo/psx-api',
+                        'status' => 1,
+                        'href' => 'https://github.com/apioo/psx-api',
+                        'description' => 'Parse and generate API specification formats',
+                    ],
+                    [
+                        'name' => 'apioo/typeschema',
+                        'status' => 1,
+                        'href' => 'https://github.com/apioo/typeschema',
+                        'description' => 'TypeSchema is a JSON format to describe data models in a language neutral format',
+                    ],
+                    [
+                        'name' => 'apioo/fusio-docker',
+                        'status' => 1,
+                        'href' => 'https://github.com/apioo/fusio-docker',
+                        'description' => 'Official docker container of Fusio an open source API management system',
                     ],
                 ],
                 'websites' => [
@@ -59,6 +91,26 @@ class Projects
                         'status' => 1,
                         'href' => 'https://typehub.cloud/',
                         'description' => 'TypeHub is a collaborative platform to design open data specifications, it is like GitHub but instead of code we model data',
+                    ],
+                    [
+                        'name' => 'Apioo',
+                        'status' => 1,
+                        'href' => 'https://apioo.de/',
+                        'description' => 'Project website which lists all our products',
+                    ],
+                ],
+                'other' => [
+                    [
+                        'name' => 'Blog',
+                        'status' => 1,
+                        'href' => 'https://medium.com/@chriskapp',
+                        'description' => 'Medium blog where I post about different topics.',
+                    ],
+                    [
+                        'name' => 'GitHub',
+                        'status' => 1,
+                        'href' => 'https://github.com/chriskapp',
+                        'description' => 'Personal Github account',
                     ],
                 ],
             ],

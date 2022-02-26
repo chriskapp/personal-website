@@ -4,7 +4,7 @@
 <?php echo $about; ?>
 
 
-## My open-source projects:
+## Projects:
 
 <?php foreach($projects->opensource as $project): ?>
   * <?php echo $project->name; ?> (<?php echo $project->href; ?>)
@@ -13,9 +13,28 @@
 
 <?php endforeach; ?>
 
-## My websites:
+## Github:
+
+
+<?php foreach($projects->github as $project): ?>
+  * <?php echo $project->name; ?> (<?php echo $project->href; ?>)
+    <?php echo $project->description; ?>
+
+
+<?php endforeach; ?>
+
+## Websites:
 
 <?php foreach($projects->websites as $project): ?>
+  * <?php echo $project->name; ?> (<?php echo $project->href; ?>)
+    <?php echo $project->description; ?>
+
+
+<?php endforeach; ?>
+
+## Other:
+
+<?php foreach($projects->other as $project): ?>
   * <?php echo $project->name; ?> (<?php echo $project->href; ?>)
     <?php echo $project->description; ?>
 
