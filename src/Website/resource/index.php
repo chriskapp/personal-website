@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-md-12">
     <header itemscope itemtype="https://schema.org/Person">
-      <h1><a href="<?php echo $url ?>" itemprop="name">Christoph Kappestein</a></h1>
+      <h1><a href="<?php echo $url ?>" itemprop="url"><span itemprop="name">Christoph Kappestein</span></a></h1>
       <div class="media">
         <div class="pull-left">
           <img src="<?php echo $base ?>/img/avatar_real.jpg" width="140" alt="logo" itemprop="image" />
