@@ -2,16 +2,15 @@
 
 <div class="row">
   <div class="col-md-12">
-    <header class="h-card">
-      <h1><a href="<?php echo $url ?>" class="p-name u-url">Christoph Kappestein</a></h1>
+    <header itemscope itemtype="https://schema.org/Person">
+      <h1><a href="<?php echo $url ?>" itemprop="name">Christoph Kappestein</a></h1>
       <div class="media">
         <div class="pull-left">
-          <img src="<?php echo $base ?>/img/avatar_real.jpg" width="140" alt="logo" class="media-object u-photo"/>
+          <img src="<?php echo $base ?>/img/avatar_real.jpg" width="140" alt="logo" itemprop="image" />
         </div>
         <div class="media-body">
-          <p><?php echo $about; ?></p>
-          <a class="github-button" href="https://github.com/sponsors/chriskapp" data-icon="octicon-heart"
-             data-size="large" aria-label="Sponsor @chriskapp on GitHub">Sponsor</a>
+          <p itemprop="description"><?php echo $about; ?></p>
+          <a class="github-button" href="https://github.com/sponsors/chriskapp" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @chriskapp on GitHub">Sponsor</a>
         </div>
       </div>
     </header>
