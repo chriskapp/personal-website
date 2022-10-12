@@ -7,7 +7,7 @@ class Projects
     public function getProjects(): array
     {
         return [
-            'about' => 'My name is Christoph Kappestein Iam a developer, open-source enthusiast and chess player. I like to write PHP and Java applications. Talk is cheap show me the code!',
+            'about' => 'My name is Christoph Kappestein, I`am a developer, open-source enthusiast and chess player. I like to write PHP and Java applications. Talk is cheap show me the code!',
             'projects' => [
                 'opensource' => [
                     [
@@ -137,10 +137,6 @@ class Projects
                         'description' => 'Github account',
                     ],
                 ],
-            ],
-            'contact' => [
-                'fingerprint' => 'C6D2 06A6 83D0 5335 8092 8434 BD8F B36E 7240 89DE',
-                'href' => 'http://keys.gnupg.net/pks/lookup?search=0xBD8FB36E724089DE&fingerprint=on&op=index'
             ],
         ];
     }

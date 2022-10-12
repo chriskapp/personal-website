@@ -4,7 +4,7 @@
 <?php echo $about; ?>
 
 
-## Projects:
+## Open-Source:
 
 <?php foreach($projects->opensource as $project): ?>
   * <?php echo $project->name; ?> (<?php echo $project->href; ?>)
@@ -15,7 +15,6 @@
 
 ## Github:
 
-
 <?php foreach($projects->github as $project): ?>
   * <?php echo $project->name; ?> (<?php echo $project->href; ?>)
     <?php echo $project->description; ?>
@@ -23,7 +22,7 @@
 
 <?php endforeach; ?>
 
-## Websites:
+## Projects:
 
 <?php foreach($projects->websites as $project): ?>
   * <?php echo $project->name; ?> (<?php echo $project->href; ?>)
@@ -41,12 +40,12 @@
 
 <?php endforeach; ?>
 
-## My PGP key:
+## Contact:
 
-You can send me an email:
+You can contact me directly at:
+https://www.apioo.de/en/contact
 
-Contact: <?php echo $contact->href; ?>
-
-Fingerprint: <?php echo $contact->fingerprint; ?>
+To send me an encrypted mail use the following Public-Key:
+<?php echo $base ?>/pub.key
 
 </pre>
