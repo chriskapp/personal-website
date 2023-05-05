@@ -1,13 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Service;
 
 class Projects
 {
     public function getProjects(): array
     {
         return [
-            'about' => 'My name is Christoph Kappestein, I`am a developer, open-source enthusiast and chess player. I like to write PHP and Java applications. Talk is cheap show me the code!',
+            'about' => [
+                'Hello, my name is Christoph, I`am a software developer and I like to build and innovate solutions for the API ecosystem using type-safe/oop languages like PHP, TypeScript and Java.',
+                'I have started several open source projects like <a href="https://www.fusio-project.org/">Fusio</a>, a popular open source API management system or <a href="https://phpsx.org/">PSX</a> a framework and set of components dedicated to build modern API solutions. I`am also the author of the <a href="https://typeapi.org/">TypeAPI</a> and <a href="https://typeschema.org/">TypeSchema</a> specification which provides a new way to describe REST APIs in a type-safe way.',
+                'Please take a look at my website <a href="https://chrisk.app/">chrisk.app</a> to get an overview about all my projects. I`am working as lead solution architect at <a href="https://artemeon.de/">Artemeon</a> where we build RegTech solutions for the financial and insurance sector.',
+            ],
             'projects' => [
                 'opensource' => [
                     [
@@ -23,10 +27,16 @@ class Projects
                         'description' => 'A PHP framework to develop RESTful APIs',
                     ],
                     [
+                        'name' => 'TypeAPI',
+                        'status' => 1,
+                        'href' => 'https://typeapi.org/',
+                        'description' => 'An OpenAPI alternative to describe REST APIs for type-safe code generation',
+                    ],
+                    [
                         'name' => 'TypeSchema',
                         'status' => 1,
                         'href' => 'https://typeschema.org/',
-                        'description' => 'A JSON format to describe JSON structures optimized for code generation',
+                        'description' => 'TypeSchema is a JSON format to describe data models in a language neutral format',
                     ],
                     [
                         'name' => 'Apioo',
@@ -49,6 +59,18 @@ class Projects
                         'description' => 'PHP REST API Framework',
                     ],
                     [
+                        'name' => 'apioo/typeapi',
+                        'status' => 1,
+                        'href' => 'https://github.com/apioo/typeschema',
+                        'description' => 'An OpenAPI alternative to describe REST APIs for type-safe code generation',
+                    ],
+                    [
+                        'name' => 'apioo/typeschema',
+                        'status' => 1,
+                        'href' => 'https://github.com/apioo/typeschema',
+                        'description' => 'TypeSchema is a JSON format to describe data models in a language neutral format',
+                    ],
+                    [
                         'name' => 'apioo/psx-schema',
                         'status' => 1,
                         'href' => 'https://github.com/apioo/psx-schema',
@@ -59,12 +81,6 @@ class Projects
                         'status' => 1,
                         'href' => 'https://github.com/apioo/psx-api',
                         'description' => 'Parse and generate API specification formats',
-                    ],
-                    [
-                        'name' => 'apioo/typeschema',
-                        'status' => 1,
-                        'href' => 'https://github.com/apioo/typeschema',
-                        'description' => 'TypeSchema is a JSON format to describe data models in a language neutral format',
                     ],
                     [
                         'name' => 'apioo/fusio-docker',
@@ -81,10 +97,10 @@ class Projects
                         'description' => 'A simple hosting service to create a Fusio instance in the cloud',
                     ],
                     [
-                        'name' => 'ApiGen',
+                        'name' => 'APIGen',
                         'status' => 1,
                         'href' => 'https://apigen.app/',
-                        'description' => 'A RAD tool to automatically generate REST APIs based on model definitions',
+                        'description' => 'Generate fully working and customizable APIs based on your data model',
                     ],
                     [
                         'name' => 'TypeHub',

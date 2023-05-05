@@ -2,7 +2,7 @@
 
 namespace App\Dependency;
 
-use App\Projects;
+use App\Service\Projects;
 use PSX\Framework\Dependency\DefaultContainer;
 
 class Container extends DefaultContainer

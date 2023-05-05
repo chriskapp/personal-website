@@ -7,7 +7,6 @@
     <meta name="description" content="Personal website about Christoph Kappestein" />
     <link rel="icon" href="<?php echo $base; ?>/img/favicon.ico" type="image/x-icon" />
     <link href="<?php echo $base; ?>/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="<?php echo $base; ?>/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
     <link href="<?php echo $base; ?>/css/default.css" rel="stylesheet" media="screen" />
     <link type="text/plain" rel="author" href="<?php echo $url ?>humans.txt" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CD5HX0MS9D"></script>

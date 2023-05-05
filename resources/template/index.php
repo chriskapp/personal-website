@@ -2,18 +2,18 @@
 
 <div class="row">
   <div class="col-md-12">
-    <header itemscope itemtype="https://schema.org/Person">
-      <h1><a href="<?php echo $url ?>" itemprop="url"><span itemprop="name">Christoph Kappestein</span></a></h1>
-      <div class="media">
-        <div class="pull-left">
-          <img src="<?php echo $base ?>/img/avatar_real.jpg" width="140" alt="logo" itemprop="image" />
-        </div>
-        <div class="media-body">
-          <p itemprop="description"><?php echo $about; ?></p>
-          <a class="github-button" href="https://github.com/sponsors/chriskapp" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @chriskapp on GitHub">Sponsor</a>
-        </div>
+    <div class="card border-0" itemscope itemtype="https://schema.org/Person">
+      <div class="card-body">
+        <img src="<?php echo $base ?>/img/avatar_nature.jpg" width="140" alt="logo" itemprop="image" class="img-thumbnail ms-4 rounded float-end" />
+        <h5 class="card-title fw-bold" itemprop="name"><a href="<?php echo $url ?>" itemprop="url">Christoph Kappestein</a></h5>
+        <p class="card-text" itemprop="description">
+          <?php foreach ($about as $line): ?>
+            <p><?php echo $line; ?></p>
+          <?php endforeach; ?>
+        </p>
+        <a class="github-button" href="https://github.com/sponsors/chriskapp" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @chriskapp on GitHub">Sponsor</a>
       </div>
-    </header>
+    </div>
   </div>
 </div>
 

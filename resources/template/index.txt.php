@@ -1,8 +1,11 @@
 <pre>
 # Christoph Kappestein
 
-<?php echo $about; ?>
+<?php foreach($about as $line): ?>
+<?php echo $line; ?>
 
+
+<?php endforeach; ?>
 
 ## Open-Source:
 
@@ -46,6 +49,6 @@ You can contact me directly at:
 https://www.apioo.de/en/contact
 
 To send me an encrypted mail use the following Public-Key:
-<?php echo $base ?>/pub.key
+<?php echo $url ?>pub.key
 
 </pre>
