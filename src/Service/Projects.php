@@ -135,6 +135,12 @@ class Projects
                         'description' => 'YouTube account of the Fusio project',
                     ],
                     [
+                        'name' => 'Discord',
+                        'status' => 1,
+                        'href' => 'https://discord.gg/eMrMgwsc6e',
+                        'description' => 'Discord about all related projects or if you want to contact me directly',
+                    ],
+                    [
                         'name' => 'LinkedIn',
                         'status' => 1,
                         'href' => 'https://www.linkedin.com/in/christoph-kappestein-051962156/',
