@@ -2,7 +2,7 @@
 # Christoph Kappestein
 
 <?php foreach($about as $line): ?>
-<?php echo $line; ?>
+<?php echo wordwrap($line, 80); ?>
 
 
 <?php endforeach; ?>
