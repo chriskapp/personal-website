@@ -143,7 +143,7 @@ class Projects
                     [
                         'name' => 'LinkedIn',
                         'status' => 1,
-                        'href' => 'https://www.linkedin.com/in/christoph-kappestein-051962156/',
+                        'href' => 'https://www.linkedin.com/in/christoph-kappestein/',
                         'description' => 'LinkedIn account',
                     ],
                     [
