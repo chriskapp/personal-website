@@ -91,22 +91,34 @@ class Projects
                 ],
                 'websites' => [
                     [
-                        'name' => 'Cloud',
+                        'name' => 'TypeHub',
                         'status' => 1,
-                        'href' => 'https://fusio.cloud/',
-                        'description' => 'A simple hosting service to create a Fusio instance in the cloud',
+                        'href' => 'https://typehub.cloud/',
+                        'description' => 'TypeHub is a next generation API and data design platform',
                     ],
                     [
                         'name' => 'APIGen',
                         'status' => 1,
                         'href' => 'https://apigen.app/',
-                        'description' => 'Generate fully working and customizable APIs based on your data model',
+                        'description' => 'APIgen helps to quickly generate production ready and customizable APIs',
                     ],
                     [
-                        'name' => 'TypeHub',
+                        'name' => 'SDKgen',
                         'status' => 1,
-                        'href' => 'https://typehub.cloud/',
-                        'description' => 'TypeHub is a collaborative platform to design open data specifications, it is like GitHub but instead of code we model data',
+                        'href' => 'https://sdkgen.app/',
+                        'description' => 'SDKgen is a powerful code generator to automatically build client SDKs for your REST API',
+                    ],
+                    [
+                        'name' => 'APImon',
+                        'status' => 1,
+                        'href' => 'https://apimon.app/',
+                        'description' => 'APImon provides an intuitive service to monitor and analyze API endpoints',
+                    ],
+                    [
+                        'name' => 'Cloud',
+                        'status' => 1,
+                        'href' => 'https://fusio.cloud/',
+                        'description' => 'A simple hosting service to create a Fusio instance in the cloud',
                     ],
                     [
                         'name' => 'Apioo',
