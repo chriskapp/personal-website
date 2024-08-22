@@ -94,7 +94,7 @@ class Projects
                         'name' => 'DeutschlandAPI',
                         'status' => 1,
                         'href' => 'https://deutschland-api.dev/',
-                        'description' => 'The DeutschlandAPI project provides a modern REST API to access public information of germany',
+                        'description' => 'DeutschlandAPI provides a modern REST API to access public information of germany',
                     ],
                     [
                         'name' => 'TypeHub',
@@ -144,13 +144,25 @@ class Projects
                         'name' => 'Twitter',
                         'status' => 1,
                         'href' => 'https://twitter.com/FusioAPI',
-                        'description' => 'Twitter account of the Fusio project',
+                        'description' => 'Twitter account of Fusio',
+                    ],
+                    [
+                        'name' => '@fusio@fosstodon.org',
+                        'status' => 1,
+                        'href' => 'https://fosstodon.org/@fusio',
+                        'description' => 'Fosstodon account of Fusio',
+                    ],
+                    [
+                        'name' => '@chriskapp@phpc.social',
+                        'status' => 1,
+                        'href' => 'https://phpc.social/@chriskapp',
+                        'description' => 'Personal account on phpc.social',
                     ],
                     [
                         'name' => 'YouTube',
                         'status' => 1,
                         'href' => 'https://www.youtube.com/c/FusioAPI',
-                        'description' => 'YouTube account of the Fusio project',
+                        'description' => 'YouTube account of Fusio',
                     ],
                     [
                         'name' => 'Discord',
