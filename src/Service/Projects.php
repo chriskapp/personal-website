@@ -61,7 +61,7 @@ class Projects
                     [
                         'name' => 'apioo/typeapi',
                         'status' => 1,
-                        'href' => 'https://github.com/apioo/typeschema',
+                        'href' => 'https://github.com/apioo/typeapi',
                         'description' => 'An OpenAPI alternative to describe REST APIs for type-safe code generation',
                     ],
                     [
@@ -90,6 +90,12 @@ class Projects
                     ],
                 ],
                 'websites' => [
+                    [
+                        'name' => 'DeutschlandAPI',
+                        'status' => 1,
+                        'href' => 'https://deutschland-api.dev/',
+                        'description' => 'The DeutschlandAPI project provides a modern REST API to access public information of germany',
+                    ],
                     [
                         'name' => 'TypeHub',
                         'status' => 1,
