@@ -6,7 +6,7 @@
 
         <p><b>Imprint according to German law (§5 TMG):</b><br>
         Christoph Kappestein<br>
-        Schloßmacherweg 16<br>
+        Isenbügeler Str. 25A<br>
         42579 Heiligenhaus</p>
 
         <p><b>Contact:</b><br>
