@@ -1,4 +1,4 @@
-FROM php:8.1-apache
+FROM php:8.2-apache
 MAINTAINER Christoph Kappestein <christoph.kappestein@apioo.de>
 LABEL description="Personal website"
 
@@ -39,3 +39,10 @@ RUN a2enmod rewrite
 COPY . /var/www/html
 RUN cd /var/www/html && /usr/bin/composer install
 RUN chown -R www-data: /var/www/html
+RUN chmod +x /var/www/html/bin/psx
+
+# run commands
+RUN cd /var/www/html && ./bin/psx migration:migrate --no-interaction
+RUN cd /var/www/html && ./bin/psx app:update_blog
+
+RUN chmod 777 -R /var/www/html/cache
