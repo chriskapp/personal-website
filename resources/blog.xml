@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<feed>
+    <entry>
+        <title>Reboot my personal blog</title>
+        <updated>2024-08-24T14:57:00Z</updated>
+        <summary>
+            This post introduces the reboot of my personal blog, I will explain the reasons and the topics which you can
+            expect in the future.
+        </summary>
+        <category term="meta" />
+        <content type="html"><![CDATA[
+
+<p>With this post I like to reboot my personal blog. In the past I have used for a long time
+<a href="https://medium.com/@chriskapp">medium.com</a> as blogging platform but there are several reasons why I am
+no longer happy with the platform. I have thought about choosing one of the thousand alternative platforms for blogging
+but in the end they all have downsides. Instead of going through all downsides I like to share my thoughts about the
+advantages of a self-hosted blog, maybe I can convince also some readers to start again with a self-hosted blog.</p>
+
+<h2>Data sovereignty</h2>
+
+<p>If you host your own blog the content of your blog is under your control. An external blogging platform is a company
+which needs to make money, they need to somehow use your blogging content to create revenue since they offer the platform
+mostly for free. This is done by adding some kind of partner program or paywalls. On your own blog you are complete free
+from those topics and you can get sure that your content is not misused.</p>
+
+<h2>Data durability</h2>
+
+<p>Your thoughts and ideas which you write are an important part of your legacy. You probably want that this content
+is also available after your lifetime. Blogging platforms are limited to the lifetime of the company behind the platform
+which is often not too long, if the company closes your content will also disappear. If you host your own blog you
+have automatically multiple mechanisms to archive your content. In my case I use a public GitHub
+<a href="https://github.com/chriskapp/personal-website/blob/main/resources/blog.xml">repository</a> where all
+posts are stored. Then your blog is probably also covered by <a href="https://archive.org/">archive.org</a> which
+creates over time a complete backup of your blog. Through your own domain and content you basically participate in the
+history of the internet.</p>
+
+<h2>Data quality</h2>
+
+<p>Most blogging platforms provide some kind of <abbr title="What You See Is What You Ge">WYSIWYG</abbr> editor to write
+your content. Such editors often produce ugly HTML and they are also limited. Especially for development content I find
+often examples where code examples or code-highlighting are broken. If you want to preserve your content for the long term
+it is probably better to write the HTML content by your self, this ensures better data quality and makes it better readable.</p>
+
+<h2>Decentralization</h2>
+
+<p>This is an idealistic point but if you host your own blog you help to decentralize the web. You may know
+the largest problem of the current web is centralization, this means that there are only some centralized platforms or
+so called data silos like Twitter, Facebook etc. where all content gets created. In the end those platforms are dependent
+on your content, if you decide to move this content to your own blog you remove some power from those platforms.</p>
+
+<h2>Conclusion</h2>
+
+<p>These points have convinced me to start again with my own self-hosted blog. But there are of course also some
+disadvantages. The largest disadvantage is probably discoverability, on a central platform you get
+automatically readers from the users on the platform, on your own blog you depend on a search engine to find
+new readers. In the future it would be cool to have some kind of aggregation service where self-hosted blogs could
+register to reach a wider audience, to support those self-hosted blogs.</p>
+
+<h2>Future</h2>
+
+<p>Regarding this blog, in the future I will write content around my open source projects and in general development topics like API management,
+REST, code generation, specifications and decentralization. I will also go through my old <a href="https://chriskapp.medium.com/">medium.com</a>
+posts and transfer them to this blog. If you are interested feel free to subscribe to the <a href="https://chrisk.app/feed">feed</a>.
+
+]]></content>
+    </entry>
+</feed>

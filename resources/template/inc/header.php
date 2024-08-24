@@ -16,8 +16,20 @@
       gtag('js', new Date());
       gtag('config', 'G-CD5HX0MS9D', {anonymize_ip: true});
     </script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <?php if(isset($about)): ?><script async defer src="https://buttons.github.io/buttons.js"></script><?php endif; ?>
 </head>
 <body>
 
 <div class="container">
+  <nav class="navbar navbar-expand">
+    <div class="container-fluid">
+      <ul class="navbar-nav me-auto fw-bold">
+        <li class="nav-item">
+          <a class="nav-link active nav-separator" href="<?php echo $router->getUrl([\App\Controller\Index::class, 'show']); ?>">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="<?php echo $router->getUrl([\App\Controller\Blog::class, 'show']); ?>">Blog</a>
+        </li>
+      </ul>
+    </div>
+  </nav>

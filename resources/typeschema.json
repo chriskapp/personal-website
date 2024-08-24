@@ -1,0 +1,12 @@
+{
+  "definitions": {
+    "HeadhunterToken": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
