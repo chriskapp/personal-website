@@ -1,6 +1,77 @@
 <?xml version="1.0"?>
 <feed>
     <entry>
+        <title>Building infrastructure software without central authority</title>
+        <updated>2024-08-25T22:26:00Z</updated>
+        <summary>
+            In this post I think about building software as infrastructure tool which works without central authority
+        </summary>
+        <category term="idea" />
+        <category term="software" />
+        <category term="decentralization" />
+        <content type="html"><![CDATA[
+
+<p>To better explain the problem I am thinking about I like to go back in time.</p>
+
+<h2>Freshmeat</h2>
+
+<p>At the start of my open source journey there was a website called Freshmeat, which was used by developers to announce new
+releases, you could also browse and find existing projects. This was before GitHub existed and at that time I really liked
+this site as a central place to get information. Over time the demand decreased and the site closed, there is currently still
+a replacement active called <a href="https://freshcode.club">freshcode.club</a> but it has no longer the traction of the original service.</p>
+
+<h2>Awesome lists</h2>
+
+<p>I think the modern successor of Freshmeat are so-called "Awesome lists" on GitHub, basically these are simply repositories
+with markdown files containing links to interesting tools. The reason why these lists overtook software directories like Freshmeat
+is probably socially, because now every user could add suggestions by opening a pull request. This is really great and has
+helped to create "awesome" lists but over time this has still some problems:</p>
+
+<ul>
+    <li>Since every repository has a central owner which needs to accept and merge pull requests there are many lists where
+    the original author is no longer active so that nobody can modify an existing list. You could of course fork such
+    a list but then you have many duplicated lists and nobody knows the currently active maintained list.</li>
+    <li>Most lists contain also out-dated content since it is really difficult to keep those lists up-to-date.</li>
+</ul>
+
+<h2>Infrastructure software</h2>
+
+<p>Software directories like Freshmeat and also Awesome lists have both the problem that they have a central authority
+which needs to curate each entry. I am currently thinking about a solution for this problem so that we
+can build software without a central authority. This could allow us to create lists which are always up-to-date and evolve
+over a long period of time. Because of this I like to call this "infrastructure software" basically a piece of software which
+can run on a server without moderation or central authority.</p>
+
+<p>You may think, this sounds cool but how could this be possible and how can you prevent spam?</p>
+
+<p>I think we should come back to the basic building blocks of the internet. To protect against spam we need a resource which is limited,
+for the internet the perfect limitation is a domain. You can only add an entry to our list if you have a custom domain, this
+automatically limits participation only to users with a custom domain. To verify the ownership of the domain we could add
+a verification through a DNS TXT record.</p>
+
+<p>As second step if a domain was registered to our list we reverse the data flow, instead of adding an entry directly to a central
+database the domain needs to provide an endpoint where the information gets returned. For example, we could request on
+every domain the following path <code>/.well-known/software.json</code> and check the response, on success this
+endpoint returns all information of our entry on the list.</p>
+
+<p>Through this the owner of the domain can easily update the information of the entry by simply updating the <code>software.json</code>
+resource on the server. Our list aggregation service can then check all domains periodically for updates. We could also delete or hide
+an entry in case the resource returns an invalid status code like 404 or 500.</p>
+
+<h2>Conclusion</h2>
+
+<p>I think this idea is really great and could help to build software directories which could be always up-to-date and run
+for a really long time. Every user on the internet can add a new entry by submitting a custom domain to the list.
+There are still some challenges since we need a great JSON format to describe a software entry and there needs to be
+a great aggregation service which provides an intuitive UI, but those technical challenges are easy solvable.</p>
+
+<p>Currently this is still an early idea and there is no implementation, so please <a href="https://www.apioo.de/en/contact">contact me</a>
+if you like the idea and would participate on such a directory. I am really motivated to move this forward to make the web more decentralized
+and better.</p>
+
+]]></content>
+    </entry>
+    <entry>
         <title>Reboot my personal blog</title>
         <updated>2024-08-24T14:57:00Z</updated>
         <summary>
