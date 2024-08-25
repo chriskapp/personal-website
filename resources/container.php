@@ -6,8 +6,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 return static function (ContainerConfigurator $container) {
     $services = Configurator::services($container->services());
 
-    $services->load('App\\Command\\', __DIR__ . '/../src/Command')
-        ->public();
+    //$services->load('App\\Command\\', __DIR__ . '/../src/Command')->public();
 
     $services->load('App\\Controller\\', __DIR__ . '/../src/Controller')
         ->public();
@@ -15,6 +14,6 @@ return static function (ContainerConfigurator $container) {
     $services->load('App\\Service\\', __DIR__ . '/../src/Service')
         ->public();
 
-    $services->load('App\\Table\\', __DIR__ . '/../src/Table/*.php');
+    //$services->load('App\\Table\\', __DIR__ . '/../src/Table/*.php');
 
 };

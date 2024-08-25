@@ -5,7 +5,17 @@ use function Symfony\Component\DependencyInjection\Loader\Configurator\env;
 
 return [
 
+    // the blog source xml file containing all posts
     'blog_file'               => __DIR__ . '/resources/blog.xml',
+    'blog_title'              => 'chrisk.app',
+
+    // the default author of the blog posts
+    'blog_author_name'        => 'chriskapp',
+    'blog_author_uri'         => 'https://chrisk.app/',
+
+    // the blog template files
+    'blog_template_index'     => 'blog.php',
+    'blog_template_detail'    => 'blog/detail.php',
 
     'secret_key'              => env('APP_SECRET_KEY')->string(),
 

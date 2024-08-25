@@ -28,7 +28,7 @@
           <a class="nav-link active nav-separator" href="<?php echo $router->getUrl([\App\Controller\Index::class, 'show']); ?>">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="<?php echo $router->getUrl([\App\Controller\Blog::class, 'show']); ?>">Blog</a>
+          <a class="nav-link active" href="<?php echo $router->getUrl([\Chriskapp\Blog\Controller\Index::class, 'show']); ?>">Blog</a>
         </li>
       </ul>
     </div>
