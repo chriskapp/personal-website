@@ -8,7 +8,7 @@
         <h1 class="card-title fw-bold fs-4 text-start" itemprop="name"><a href="<?php echo $router->getUrl([\Chriskapp\Blog\Controller\Detail::class, 'show'], ['title' => $row->title_slug]); ?>"><?php echo $row->title; ?></a></h1>
         <p><small>posted by <a href="<?php echo $row->author_uri; ?>"><?php echo $row->author_name; ?></a> on <time datetime="<?php echo $row->updated; ?>" itemprop="datePublished"><?php echo $row->updated; ?></time></small></p>
         <div itemprop="articleSection"><?php echo $row->summary; ?></div>
-        <div class="mt-3"><?php foreach(explode(',', $row->category) as $category): ?><span class="badge rounded-pill text-bg-primary"><?php echo $category; ?></span><?php endforeach; ?></div>
+        <div class="mt-3"><?php foreach(explode(',', $row->category) as $category): ?><span class="badge rounded-pill text-bg-primary me-1"><?php echo $category; ?></span><?php endforeach; ?></div>
       </div>
     </div>
     <?php endforeach; ?>
