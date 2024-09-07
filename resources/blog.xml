@@ -1,6 +1,81 @@
 <?xml version="1.0"?>
 <feed>
     <entry>
+        <title>Introducing the DeutschlandAPI project</title>
+        <updated>2024-09-07T23:13:00Z</updated>
+        <summary>
+            In this post I like to make a short introduction to the DeutschlandAPI project and share general thoughts about the concept of a country API.
+        </summary>
+        <category term="project" />
+        <category term="api" />
+        <category term="open-government" />
+        <category term="open-data" />
+        <content type="html"><![CDATA[
+
+<p>I like to introduce you to the <a href="https://deutschland-api.dev/">DeutschlandAPI</a> project. The DeutschlandAPI
+is basically an open API which combines and aggregates multiple open government APIs of germany into a single
+consistent and easy to use API. This project is a first step to help developers get open and public information
+of germany.</p>
+
+<p>While building this API I thought about the general concept of a country API. Basically a standard API which is provided
+by each country to get all available information of the country. This could enable many great use-cases where an
+app can dynamically get all up-to-date information about a specific country. In the following I will go through
+interesting fields which could be useful for such a country API.</p>
+
+<h2>Geodata</h2>
+
+<p>At first the API should expose all basic information how the land of a country is structured, in germany we can
+split this up in states, districts and cities but for other countries this may be different. This could also include
+streets so that apps can always validate correct address data and build up-to-date dropdowns.
+
+<h2>Companies</h2>
+
+<p>Every developed country has some sort of register where every official company is registered. In germany we have the
+<a href="https://www.bundesanzeiger.de/">Bundesanzeiger</a> which basically is such a register, you can see also the annual accounts
+for each company, but I think it would be enough to have a register which lists the company names, corporate form, business objective,
+the physical address and a link to the website.</p>
+
+<p>The Bundesanzeiger has unfortunately no public API so it is not included in the DeutschlandAPI, but I would like to add this in
+the future. Such an endpoint could make it easier to get information about all companies inside a country. Today there are even services
+available which sell these kind of company information, but I think it would add a great value to have such directories free available.</p>
+
+<h2>Warnings</h2>
+
+<p>Most countries have also a basic warning system, to warn the citizens in case of fire, extreme whether, biological or nuclear events.
+In germany we have the <a href="https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warnung-in-Deutschland/MoWaS/mowas_node.html">MoWaS</a> which
+basically provides a warning system covering those events. This is also integrated in the DeutschlandAPI project.</p>
+
+<h2>Statistics</h2>
+
+<p>It would be great to have general statistics about a country like the population, GDP or unemployment rate. In germany we have the
+<a href="https://www-genesis.destatis.de">Statistisches Bundesamt</a> which collects all kind of statistical information of germany,
+but there are really many statistics about many topics like the population, education, habitation, economy, trade, finance etc. I am
+currently trying to figure out which of these information would be really valuable for such a statistic endpoint.</p>
+
+<h2>Jobs</h2>
+
+<p>Most countries have a job search which is managed by the government. In germany we have the <a href="https://www.arbeitsagentur.de/">Arbeitsagentur</a>
+which basically is such a job platform managed by the government. This could help to integrate job searches into different apps depending on the
+country. There are of course also many private networks available like <a href="https://www.linkedin.com/">LinkedIn</a> but it would be great to integrate
+a general job search provided by the government.</p>
+
+<h2>Electricity</h2>
+
+<p>A key information of each country is also the power production and consumption. We could add an endpoint where we simply return
+the current (or maybe also historical) values how much power a country has produced or consumed. This is also a great indicator
+how developed a country is.</p>
+
+<h2>Conclusion</h2>
+
+<p>The mentioned fields are first ideas which could be useful for a general country API. Those described endpoints are also read-only,
+if we think about <code>POST</code> endpoints we could open up also many more interesting use cases like replacing emergency numbers like
+110 with a post endpoint where every citizen could send a request. But those endpoints would require a safe authentication of a citizen
+which is currently not possible. With the DeutschlandAPI project I have tried to build a first country API, if you also like to implement
+a similar API for your country please take a look at our <a href="https://api.deutschland-api.dev/apps/redoc/">API documentation</a>.</p>
+
+]]></content>
+    </entry>
+    <entry>
         <title>Building infrastructure software without central authority</title>
         <updated>2024-08-30T18:40:00Z</updated>
         <summary>
