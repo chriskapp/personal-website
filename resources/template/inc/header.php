@@ -9,6 +9,7 @@
     <link href="<?php echo $base; ?>/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="<?php echo $base; ?>/css/default.css" rel="stylesheet" media="screen" />
     <link type="text/plain" rel="author" href="<?php echo $url ?>humans.txt" />
+    <link type="application/atom+xml" rel="alternate" href="<?php echo $router->getUrl([\Chriskapp\Blog\Controller\Feed::class, 'show']); ?>" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CD5HX0MS9D"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
