@@ -1,6 +1,165 @@
 <?xml version="1.0"?>
 <feed>
     <entry>
+        <title>TypeSchema a JSON specification to describe data models</title>
+        <updated>2025-01-02T23:03:00Z</updated>
+        <summary>
+            This post talks about the latest TypeSchema version and how it can be used to generate models in different environments.
+        </summary>
+        <category term="type-schema" />
+        <category term="json-schema" />
+        <category term="data" />
+        <category term="model" />
+        <category term="specification" />
+        <content type="html"><![CDATA[
+
+<p>In this post I like to talk about the <a href="https://typeschema.org/">TypeSchema</a> specification and the changes of the latest version.</p>
+
+<p>To start, <a href="https://typeschema.org/">TypeSchema</a> is a JSON specification to describe data models in a language neutral format.
+Basically it can be seen as an alternative to JSON schema with a focus on code generation (and not validation).
+It helps you to build type-safe applications by sharing core data models in different environments.</p>
+
+<p>The TypeSchema specification is reversible, this means you can transform a TypeSchema specification into actual code and then use
+a reflection library to turn this code back into a TypeSchema specification without any data loss s.</p>
+
+<hr>
+
+<figure>
+<pre style="text-align:center">
+Generator           Reflection
+|                   |
+TypeSchema ---> Generated Code ---> TypeSchema
+</pre>
+</figure>
+
+<hr>
+
+<p>In this case the TypeSchema on the left is identical to the TypeSchema on the right. To give you a practical example lets
+take a look at the following TypeSchema specification:</p>
+
+<h2>TypeSchema</h2>
+
+<pre>{
+  "definitions": {
+    "Student": {
+      "type": "struct",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "root": "Student"
+}
+</pre>
+
+<p>Through the code generator we can turn this specification into actual code, in this example
+we use the Java generator.</p>
+
+<h2>Generated Java Code</h2>
+
+<pre>import com.fasterxml.jackson.annotation.*;
+
+public class Student {
+    private String firstName;
+    private String lastName;
+    private Integer age;
+
+    @JsonSetter("firstName")
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    @JsonGetter("firstName")
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    @JsonSetter("lastName")
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    @JsonGetter("lastName")
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    @JsonSetter("age")
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    @JsonGetter("age")
+    public Integer getAge() {
+        return this.age;
+    }
+}
+</pre>
+
+<p>Now we can use the <a href="https://github.com/apioo/typeschema-reflection-java">reflection library</a> to transform this model back into a TypeSchema
+specification which looks exactly like the schema defined above.</p>
+
+<p>This should give you a rough understanding how TypeSchema works, for more details please take a look at the <a href="https://typeschema.org/">website</a>
+or <a href="https://app.typehub.cloud/d/typehub/typeschema">specification</a>.</p>
+
+<h2>Changes</h2>
+
+<p>With the latest version we have moved away from the JSON Schema compatibility which we had for some years, this means we now use dedicated keywords
+which are not compatible with JSON Schema so you need to decide whether you want to use TypeSchema or JSON Schema. The following list covers the
+important changes.</p>
+
+<p><b>Validation</b></p>
+
+<p>We have removed all validation keywords from our specification i.e. <code>required</code> or <code>minLength</code> to make clear that TypeSchema
+helps you only to model your data, it is not intended to validate your data. We also no longer use the dollar sign <code>$</code> at our keywords since
+they make it more complicated for code generators to process.</p>
+
+<p>We think that validation must be done in your domain layer, where you also generate fitting error messages. At TypeSchema you only describe which
+fields are available and our code generator can then generate DTOs for every object structure. These DTOs can then be used at your domain layer
+to validate the incoming data.</p>
+
+<p><b>Union</b></p>
+
+<p>We have removed support of the <code>oneOf</code> keyword. At the code generator we have noticed that for dynamically typed languages it is easy
+to represent actual unions, statically typed languages like Java or C# have a much harder time to represent such dynamic data types. But they all
+can represent a tagged union. This is also the concept which is now supported at TypeSchema, instead of guessing the fitting schema
+a user needs to provide a concrete type identifier which is mapped to a concrete type definition. This is also
+<a href="https://github.com/apioo/typeschema/blob/master/specification/typeschema.json#L130">heavily used</a> at our meta-schema to describe the TypeSchema
+specification itself.</p>
+
+<p><b>Type</b></p>
+
+<p>Because of this union change we now also require a type property on every type. For example previously you could use the <code>$ref</code> keyword
+now you need to use the "reference" type s.</p>
+
+<pre>{
+  "type": "reference",
+  "target": "My_Type"
+}
+</pre>
+
+<p>I'm really happy with the current TypeSchema version and I think we have made many solid designe choices for the future. Basically TypeSchema could
+evolve into a general JSON format to represent a model in a language neutral format.</p>
+
+<h2>Ecosystem</h2>
+
+<p>To give you a short outlook into the ecosystem, there are several projects in development which are basically based on TypeSchema. At first there is
+a new specification called <a href="https://typeapi.org/">TypeAPI</a> which helps to describe complete REST APIs for code generation, which internally
+also uses the TypeSchema models. Then there is a platform called <a href="https://typehub.cloud/">TypeHub</a> which helps to manage TypeSchema/TypeAPI
+specifications and the <a href="https://sdkgen.app/">SDKgen</a> app which provides a great code generator to turn an TypeSchema/TypeAPI specification
+into client code.</p>
+
+]]></content>
+    </entry>
+    <entry>
         <title>Introducing the DeutschlandAPI project</title>
         <updated>2024-09-07T23:13:00Z</updated>
         <summary>
