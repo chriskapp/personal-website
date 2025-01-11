@@ -8,8 +8,8 @@ class Projects
     {
         return [
             'about' => [
-                'Hello, my name is Christoph, I am a software developer and I like to build and innovate solutions for the API ecosystem using type-safe/oop languages like PHP, TypeScript and Java.',
-                'I have started several open source projects like <a href="https://www.fusio-project.org/">Fusio</a>, a popular open source API management system or <a href="https://phpsx.org/">PSX</a> a framework and set of components dedicated to build modern API solutions. I am also the author of the <a href="https://typeapi.org/">TypeAPI</a> and <a href="https://typeschema.org/">TypeSchema</a> specification which provides a new way to describe REST APIs in a type-safe way.',
+                'Hello, my name is Christoph, I\'am a software developer and I like to build and innovate solutions for the API ecosystem using type-safe/oop languages like PHP, TypeScript and Java.',
+                'I\'am the head developer behind the <a href="https://apioo.de/">Apioo-Project</a> which is a collection of API related projects to challenge the current API landscape and to move to a connected future.',
                 'Please take a look at my website <a href="https://chrisk.app/">chrisk.app</a> to get an overview about all my projects. I am working as team lead software developer at <a href="https://artemeon.de/">Artemeon</a> where we build RegTech solutions for the financial and insurance sector. If you are a headhunter please <a href="https://chrisk.app/headhunter">click here</a> to contact me.',
             ],
             'projects' => [
@@ -37,12 +37,6 @@ class Projects
                         'status' => 1,
                         'href' => 'https://typeschema.org/',
                         'description' => 'TypeSchema is a JSON format to describe data models in a language neutral format',
-                    ],
-                    [
-                        'name' => 'Apioo',
-                        'status' => 1,
-                        'href' => 'https://github.com/apioo',
-                        'description' => 'Github organisation which contains API related projects',
                     ],
                 ],
                 'github' => [
@@ -82,63 +76,63 @@ class Projects
                         'href' => 'https://github.com/apioo/psx-api',
                         'description' => 'Parse and generate API specification formats',
                     ],
-                    [
-                        'name' => 'apioo/fusio-docker',
-                        'status' => 1,
-                        'href' => 'https://github.com/apioo/fusio-docker',
-                        'description' => 'Official docker container of Fusio an open source API management system',
-                    ],
                 ],
-                'websites' => [
+                'projects' => [
                     [
-                        'name' => 'DeutschlandAPI',
+                        'name' => 'Apioo',
                         'status' => 1,
-                        'href' => 'https://deutschland-api.dev/',
-                        'description' => 'DeutschlandAPI provides a modern REST API to access public information of germany',
+                        'href' => 'https://apioo.de/',
+                        'description' => 'Main project website which lists all projects.',
                     ],
                     [
                         'name' => 'TypeHub',
                         'status' => 1,
                         'href' => 'https://typehub.cloud/',
-                        'description' => 'TypeHub is a next generation API and data design platform',
-                    ],
-                    [
-                        'name' => 'APIGen',
-                        'status' => 1,
-                        'href' => 'https://apigen.app/',
-                        'description' => 'APIgen helps to quickly generate production ready and customizable APIs',
+                        'description' => 'TypeHub is a next generation API and data design platform.',
                     ],
                     [
                         'name' => 'SDKgen',
                         'status' => 1,
                         'href' => 'https://sdkgen.app/',
-                        'description' => 'SDKgen is a powerful code generator to automatically build client SDKs for your REST API',
+                        'description' => 'SDKgen is a powerful code generator to automatically build client SDKs for your REST API.',
+                    ],
+                    [
+                        'name' => 'APIGen',
+                        'status' => 1,
+                        'href' => 'https://apigen.app/',
+                        'description' => 'APIgen helps to quickly generate production ready and customizable APIs.',
                     ],
                     [
                         'name' => 'APImon',
                         'status' => 1,
                         'href' => 'https://apimon.app/',
-                        'description' => 'APImon provides an intuitive service to monitor and analyze API endpoints',
+                        'description' => 'APImon provides an intuitive service to monitor and analyze API endpoints.',
                     ],
                     [
-                        'name' => 'Cloud',
+                        'name' => 'SDK-Fabric',
                         'status' => 1,
-                        'href' => 'https://fusio.cloud/',
-                        'description' => 'A simple hosting service to create a Fusio instance in the cloud',
+                        'href' => 'https://sdk-fabric.org/',
+                        'description' => 'SDK Fabric provides an open infrastructure to automatically generate SDKs for every API.',
                     ],
                     [
-                        'name' => 'Apioo',
+                        'name' => 'DeutschlandAPI',
                         'status' => 1,
-                        'href' => 'https://apioo.de/',
-                        'description' => 'Project website which lists all our products',
+                        'href' => 'https://deutschland-api.dev/',
+                        'description' => 'DeutschlandAPI provides a modern REST API to access public information of germany.',
                     ],
                 ],
-                'other' => [
+                'social' => [
                     [
                         'name' => 'Twitter',
                         'status' => 1,
                         'href' => 'https://twitter.com/FusioAPI',
                         'description' => 'Twitter account of Fusio',
+                    ],
+                    [
+                        'name' => '@fusioapi.bsky.social',
+                        'status' => 1,
+                        'href' => 'https://bsky.app/profile/fusioapi.bsky.social',
+                        'description' => 'BlueSky account of Fusio',
                     ],
                     [
                         'name' => '@fusio@fosstodon.org',
