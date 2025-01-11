@@ -27,16 +27,16 @@
 
 ## Projects:
 
-<?php foreach($projects->websites as $project): ?>
+<?php foreach($projects->projects as $project): ?>
   * <?php echo $project->name; ?> (<?php echo $project->href; ?>)
     <?php echo $project->description; ?>
 
 
 <?php endforeach; ?>
 
-## Other:
+## Social:
 
-<?php foreach($projects->other as $project): ?>
+<?php foreach($projects->social as $project): ?>
   * <?php echo $project->name; ?> (<?php echo $project->href; ?>)
     <?php echo $project->description; ?>
 

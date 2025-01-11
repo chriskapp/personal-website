@@ -4,9 +4,9 @@
   <div class="col-md-12">
     <div class="card border-0" itemscope itemtype="https://schema.org/Person">
       <div class="card-body">
-        <img src="<?php echo $base ?>/img/avatar_nature.jpg" width="140" alt="logo" itemprop="image" class="img-thumbnail ms-4 rounded float-end" />
-        <h1 class="card-title fw-bold fs-4 text-start" itemprop="name"><a href="<?php echo $url ?>" itemprop="url">Christoph Kappestein</a></h1>
-        <p class="card-text" itemprop="description">
+        <img src="<?php echo $base ?>/img/avatar_nature.jpg" width="140" alt="logo" class="img-thumbnail ms-4 rounded float-end" />
+        <h1 class="card-title fw-bold fs-4 text-start"><a href="<?php echo $url ?>">Christoph Kappestein</a></h1>
+        <p class="card-text">
           <?php foreach ($about as $line): ?>
             <p><?php echo $line; ?></p>
           <?php endforeach; ?>
@@ -46,7 +46,7 @@
         </ul>
         <h2>Projects:</h2>
         <ul>
-          <?php foreach ($projects->websites as $project): ?>
+          <?php foreach ($projects->projects as $project): ?>
             <?php if ($project->status == 1): ?>
             <li>
               <a href="<?php echo $project->href; ?>"><?php echo $project->name; ?></a><br><span><?php echo $project->description; ?></span>
@@ -58,9 +58,9 @@
             <?php endif; ?>
           <?php endforeach; ?>
         </ul>
-        <h2>Other:</h2>
+        <h2>Social:</h2>
         <ul>
-          <?php foreach ($projects->other as $project): ?>
+          <?php foreach ($projects->social as $project): ?>
             <?php if ($project->status == 1): ?>
             <li>
               <a href="<?php echo $project->href; ?>"><?php echo $project->name; ?></a><br><span><?php echo $project->description; ?></span>
@@ -81,6 +81,25 @@
     </div>
   </div>
 </div>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "url": "https://chrisk.app",
+    "name": "Christoph Kappestein",
+    "image": "https://chrisk.app/img/avatar_nature.jpg",
+    "description": "<?php echo $about[0] ?? ''; ?>",
+    "givenName": "Christoph",
+    "familyName": "Kappestein",
+    "jobTitle": "Developer",
+    "birthDate": "1986-10-09",
+    "owns": {
+      "@type": "Organization",
+      "@id": "https://apioo.de/"
+    }
+  }
+</script>
 
 <?php include(__DIR__ . '/inc/footer.php'); ?>
 
