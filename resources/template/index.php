@@ -63,7 +63,7 @@
           <?php foreach ($projects->social as $project): ?>
             <?php if ($project->status == 1): ?>
             <li>
-              <a href="<?php echo $project->href; ?>"><?php echo $project->name; ?></a><br><span><?php echo $project->description; ?></span>
+              <a <?php echo isset($project->rel) ? 'rel="' . $project->rel . '" ' : ''; ?>href="<?php echo $project->href; ?>"><?php echo $project->name; ?></a><br><span><?php echo $project->description; ?></span>
             </li>
             <?php else: ?>
             <li>

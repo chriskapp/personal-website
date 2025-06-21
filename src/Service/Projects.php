@@ -145,6 +145,7 @@ class Projects
                         'status' => 1,
                         'href' => 'https://phpc.social/@chriskapp',
                         'description' => 'Personal account on phpc.social',
+                        'rel' => 'me',
                     ],
                     [
                         'name' => 'YouTube',
