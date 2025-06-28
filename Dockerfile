@@ -1,9 +1,9 @@
-FROM php:8.2-apache
+FROM php:8.4-apache
 MAINTAINER Christoph Kappestein <christoph.kappestein@apioo.de>
 LABEL description="Personal website"
 
-ENV COMPOSER_VERSION "2.1.9"
-ENV COMPOSER_SHA256 "4d00b70e146c17d663ad2f9a21ebb4c9d52b021b1ac15f648b4d371c04d648ba"
+ENV COMPOSER_VERSION "2.8.9"
+ENV COMPOSER_SHA256 "8e8829ec2b97fcb05158236984bc252bef902e7b8ff65555a1eeda4ec13fb82b"
 
 ENV APACHE_DOCUMENT_ROOT "/var/www/html/public"
 
