@@ -1,6 +1,119 @@
 <?xml version="1.0"?>
 <feed>
     <entry>
+        <title>Lessons learned from building a Docker-based server panel</title>
+        <updated>2025-06-28T17:03:00Z</updated>
+        <summary>
+            This post talks about the lessons learned from building a Docker-based server panel to self-host apps.
+        </summary>
+        <category term="docker" />
+        <category term="self-host" />
+        <category term="server" />
+        <category term="panel" />
+        <content type="html"><![CDATA[
+
+<p>Today I have released a first version of <a href="https://github.com/apioo/fusio-plant">Fusio Plant</a> which is an open source
+server management tool to easily self-host apps on your server, in this post I like to share some experiences of this process.</p>
+
+<p>While building Plant, we had the goal to keep the host as small as possible, we basically only wanted to install Nginx and Docker
+and start all projects through a simple <code>docker-compose.yml</code> file. We also wanted to run the Plant app itself as docker container
+so that it is easy to update the server panel itself. Moving the Plant app into a docker container means also that we can no
+longer directly execute commands on the host. In general, this is a good thing, but for a server panel we need the option to change
+i.e. the Nginx configuration or run Docker commands on the host.</p>
+
+<h2>Host Docker communication</h2>
+
+<p>In the development process, we had developed three versions to enable this Docker to host communication. These ideas are maybe
+also useful for other scenarios, so I will walk you through each version.</p>
+
+<p><b>Cron</b></p>
+
+<p>The first implementation used a simple cronjob which executed a bash script. The bash script walked through each file in an
+<code>input/</code> folder, executed each file and wrote the output to an <code>output/</code> folder. Those <code>input/</code>
+and <code>output/</code> folders are also mounted into the docker container and inside the container we wrote a command into the
+<code>input/</code> folder and waited until the result was available at the <code>output/</code> folder.</p>
+
+<p>The biggest limitation of this solution was speed since cron can execute a script only once every minute. This means in the worst
+case, a user needs to wait almost a minute for the command to be executed.</p>
+
+<p><b>inotifywait</b></p>
+
+<p>To improve the performance we tried to use <code>inotifywait</code> which is basically a tool which you can use to listen for
+file changes inside a folder. The setup is basically identical to the cron version but instead of cron we use <code>inotifywait</code>
+to listen for file changes inside the <code>input/</code> folder and then write the result to the <code>output/</code> folder.
+To run this script we have also used <a href="https://supervisord.org/">supervisord</a> to keep the bash script alive in case of errors.</p>
+
+<p>Initially this has worked and improved the performance greatly, but unfortunately there are some scenarios where <code>inotifywait</code>
+could not detect file changes in case the Docker app placed multiple files into the <code>input/</code> folder.</p>
+
+<p><b>Named pipe</b></p>
+
+<p>As the last and final solution, we have changed the input folder to a <a href="https://en.wikipedia.org/wiki/Named_pipe">named pipe</a>.
+We can then mount this pipe into our Docker container and write events directly into this pipe. On the host we can then listen to this
+pipe and execute events directly on occurrence.</p>
+
+<p>The <a href="https://github.com/apioo/fusio-plant/blob/main/bash/executor.sh#L157">bash script</a> on the host can now
+easily listen for changes on the pipe s.</p>
+
+<pre>
+input=/opt/plant/input
+
+while true
+do
+  while read -r line; do execute_command "$line"; done < $input
+  sleep 1
+done
+</pre>
+
+<p>To write events to the pipe, we can use basic file functions s.</p>
+
+<pre>
+$input = fopen('/tmp/input', 'w');
+fwrite($input, '{"type": "my_command"}');
+fclose($input);
+</pre>
+
+<p>After writing the command to the pipe we can directly check the <code>/output</code> file and wait for
+a response. To veriy that the script was fully executed we check for a specific <code>--EOF-MARKER--</code>
+marker at the end of the file and if its available we stop reading the file.</p>
+
+<pre>
+$response = '';
+$outputFile = '/tmp/output';
+$output = fopen($outputFile, 'r');
+$count = 0;
+while ($count < 32) {
+    $size = filesize($outputFile);
+    if ($size > 0) {
+        $response.= fread($output, $size);
+    }
+
+    if (str_contains($response, '--EOF-MARKER--')) {
+        break;
+    }
+
+    usleep(100_000);
+    clearstatcache();
+
+    $count++;
+}
+
+fclose($output);
+</pre>
+
+<p>The <code>clearstatcache</code> call in the snippet above is crucial since PHP automatically caches the responses
+of the <code>filesize</code> function, so we need to clear the cache on every iteration to get the live file size which
+often changes on command execution.</p>
+
+<h2>Conclusion</h2>
+
+<p>As a conclusion, we have looked into three solutions to enable Docker host communication. In our case, the named pipe
+solution works perfectly since it is fast and lightweight, and we can now easily execute commands on the host system.
+In case you are interested in a new Docker-based server management tool, check out the <a href="https://github.com/apioo/fusio-plant">Plant GitHub repository</a>.</p>
+
+]]></content>
+    </entry>
+    <entry>
         <title>TypeSchema a JSON specification to describe data models</title>
         <updated>2025-01-02T23:03:00Z</updated>
         <summary>
