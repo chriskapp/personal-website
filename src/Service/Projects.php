@@ -76,6 +76,12 @@ class Projects
                         'href' => 'https://github.com/apioo/psx-api',
                         'description' => 'Parse and generate API specification formats',
                     ],
+                    [
+                        'name' => 'chriskapp/aletheia',
+                        'status' => 1,
+                        'href' => 'https://github.com/chriskapp/aletheia',
+                        'description' => 'Web-Browser like Java app to send raw HTTP requests, it is designed for debugging and finding security issues in web applications',
+                    ]
                 ],
                 'projects' => [
                     [
