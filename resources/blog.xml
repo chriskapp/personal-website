@@ -1,6 +1,105 @@
 <?xml version="1.0"?>
 <feed>
     <entry>
+        <title>Fusio 6.0 released</title>
+        <updated>2025-09-04T10:22:00Z</updated>
+        <summary>
+            In this post I will talk about the latest Fusio 6.0 major release
+        </summary>
+        <category term="fusio" />
+        <category term="api" />
+        <category term="rest" />
+        <category term="api-management" />
+        <category term="api-gateway" />
+        <category term="backend" />
+        <content type="html"><![CDATA[
+
+<p>Today we have released the next major version 6.0 of <a href="https://www.fusio-project.org/">Fusio</a>. Fusio is an open source
+API management platform which helps to build APIs. In this post I like to talk about the new features of the 6.0 release. For all technical
+details you can take a look at the <a href="https://www.fusio-project.org/blog/post/fusio-6.0-released">release post</a>.</p>
+
+<h2>Connection designer</h2>
+
+<p>From the beginning Fusio was always a tool with a feature-set between an API gateway (like <a href="https://konghq.com/">Kong</a> or <a href="https://tyk.io/">Tyk</a>
+to route traffic to internal services and handle authorization etc.) and a backend (like <a href="https://firebase.google.com/">Firebase</a> or <a href="https://supabase.com/">Supabase</a>
+where a developer can build actual endpoints). The backend part was always a bit behind since you would need to use external tools i.e. like
+a database management tool or an HTTP client to build a backend. I think with the 6.0 version we have finally completed the backend feature-set so that it is
+now possible to build complete apps without leaving Fusio. This is possible through the new connection designer panels which we have implemented s.</p>
+
+<img src="https://chrisk.app/img/blog/fusio-6.0-released/connection_list.png" alt="Connection list" class="img-fluid mb-3">
+
+<p>The connection list contains external service which you want to use in your app, in this example we have a mysql database connection, a remote
+HTTP starwars API and a local cache dir folder on the filesystem. At each connection there is now a new terminal button right beside the edit button
+(which we call designer) which you can use for each connection. The button redirects you to the fitting designer for the connection type.
+In the following I will cover the three new designer types.</p>
+
+<h3>Database</h3>
+
+<p>The database designer contains an overview of all tables, it is possible to create and modify the schema of each table.
+It is also possible to view and edit rows on each table. Through this you can design and manage the database schema for your app.</p>
+
+<img src="https://chrisk.app/img/blog/fusio-6.0-released/connection_database.png" alt="Database connection designer" class="img-fluid mb-3">
+
+<h3>HTTP</h3>
+
+<p>The HTTP designer provides a small HTTP client which can be used to invoke external APIs. This can be useful to test an API
+before actually implementing it in an action.</p>
+
+<img src="https://chrisk.app/img/blog/fusio-6.0-released/connection_http.png" alt="HTTP connection designer" class="img-fluid mb-3">
+
+<h3>Filesystem</h3>
+
+<p>The Filesystem designer shows all files at the filesystem connection and provides also a way to upload new files.</p>
+
+<img src="https://chrisk.app/img/blog/fusio-6.0-released/connection_filesystem.png" alt="Filesystem connection designer" class="img-fluid mb-3">
+
+<p>Currently, we have also some connections like a Message-Queue or MongoDB connection which has no designer, but we plan to implement this
+in the future. The designer panels help also to close an important feature gap for a potential Fusio cloud service, so that developers can register
+and build complete apps directly within Fusio.</p>
+
+<h2>MCP (Model-Context-Protocol)</h2>
+
+<p>With Fusio we don't want to jump directly on the AI hype train, but we have looked at it carefully and found a great way how we can help LLMs to
+interact with Fusio, which also stays true to the self-hosted spirit so that we don't force our users to use external APIs. The solution is the
+integration of an <a href="https://modelcontextprotocol.io/">MCP server</a>. Through this you can now invoke all operations through an LLM.
+To integrate the MCP server we support the stdio transport through a simple command:</p>
+
+<pre>php bin/fusio mcp</pre>
+
+<p>We have also experimental support for the HTTP transport but this is disabled by default, so you need to activate this in the configuration, if
+enabled you can use the <code>/mcp</code> endpoint. Through this MCP server you can invoke the internal backend operations via an LLM, which you can
+use to build your API, but the same logic can be also used for the API which you have build with Fusio, thus we have created automatically an MCP
+server for all our users. This feature is completely new but provides many exciting possibilities how you can use and integrate Fusio with LLMs.</p>
+
+<h2>OAuth2 authorization server</h2>
+
+<p>A great feature of Fusio are the dedicated apps which you can install through our marketplace. For example the developer app, which helps to
+build a developer portal or also the backend app which is used to manage your Fusio instance. All those apps are basically javascript apps which
+work with the Fusio API.</p>
+
+<p>With this release we have implemented a new OAuth2 authorization server which automatically integrates with every app, this means that
+you automatically get a new OAuth2 login button s.</p>
+
+<img src="https://chrisk.app/img/blog/fusio-6.0-released/oauth2_redirect.png" alt="OAuth2 login button" class="img-fluid mb-3">
+
+<p>On click on the "Fusio" login button you get redirected to the internal OAuth2 authorization server.</p>
+
+<img src="https://chrisk.app/img/blog/fusio-6.0-released/oauth2_authorize.png" alt="OAuth2 authorization" class="img-fluid mb-3">
+
+<p>There a user needs to authenticate and approve the authorization. The user has also the option to deselect specific scopes so that the app
+can access only specific parts of the API. This also helps our users to build complete new apps and use Fusio as authorization server. Since
+we also only follow the OAuth2 specification a user can easily later on swap the OAuth2 server with a different provider.</p>
+
+<h2>Conclusion</h2>
+
+<p>Personally I have the feeling that the 6.0 release marks a really great milestone for the Fusio project, which is now solid open source
+platform to build APIs. If you need to build an API or you have an API related task feel free to give Fusio a try. For more information you can
+take a look at our <a href="https://www.fusio-project.org/">website</a> and if you want support us you can also give us a star on
+<a href="https://github.com/apioo/fusio">GitHub</a>.</p>
+
+]]></content>
+    </entry>
+    <entry>
         <title>Lessons learned from building a Docker-based server panel</title>
         <updated>2025-06-28T17:03:00Z</updated>
         <summary>
