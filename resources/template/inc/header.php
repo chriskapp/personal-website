@@ -11,12 +11,17 @@
     <link href="<?php echo $base; ?>/css/default.css" rel="stylesheet" media="screen" />
     <link type="text/plain" rel="author" href="<?php echo $url ?>humans.txt" />
     <link type="application/atom+xml" rel="alternate" href="<?php echo $router->getUrl([\Chriskapp\Blog\Controller\Feed::class, 'show']); ?>" />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CD5HX0MS9D"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-CD5HX0MS9D', {anonymize_ip: true});
+      var _paq = window._paq = window._paq || [];
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+          var u="//matomo.apioo.de/";
+          _paq.push(['setTrackerUrl', u+'matomo.php']);
+          _paq.push(['setSiteId', '2']);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
     </script>
     <?php if(isset($about)): ?><script async defer src="https://buttons.github.io/buttons.js"></script><?php endif; ?>
 </head>
