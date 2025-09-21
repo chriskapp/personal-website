@@ -1,6 +1,31 @@
 <?xml version="1.0"?>
 <feed>
     <entry>
+        <title>Matomo setup Auto-Archiving with Docker</title>
+        <updated>2025-09-21T20:32:00Z</updated>
+        <summary>
+            In this post I will shortly explain how to set up Matomo Auto-Archiving using Docker
+        </summary>
+        <category term="matomo" />
+        <category term="analytics" />
+        <content type="html"><![CDATA[
+
+<p>Recently I have migrated all analytics of our projects from Google Analytics to Matomo. <a href="https://matomo.org/">Matomo</a> is
+a self-hosted alternative to Google Analytics with better privacy handling. Since all our projects run on <a href="https://github.com/apioo/fusio-plant">Plant</a>
+we use the official <a href="https://hub.docker.com/_/matomo/">Docker-Image</a> to run Matomo.</p>
+
+<p>For larger websites it is recommended to set up <a href="https://matomo.org/faq/on-premise/how-to-set-up-auto-archiving-of-your-reports/">Auto-Archiving</a>,
+which helps to process our analytics data in the background. The docs explain the setup for a plain installation but to execute the cron
+in side the docker container you need a different command. Our host server runs on Ubuntu 24.04 and to execute the cron we simply configure the following cron
+on our host system:</p>
+
+<pre>5 * * * * root /usr/bin/docker exec -t [container_name] /usr/bin/bash -c -i "./console core:archive --url=https://[your_url]/" > /tmp/matomo.log</pre>
+
+<p>This is basically only s short post to document this for the future and maybe this can also help others.</p>
+
+]]></content>
+    </entry>
+    <entry>
         <title>Fusio 6.0 released</title>
         <updated>2025-09-06T14:30:00Z</updated>
         <summary>
