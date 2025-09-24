@@ -7,7 +7,7 @@ return [
 
     // the blog source xml file containing all posts
     'blog_file'               => __DIR__ . '/resources/blog.xml',
-    'blog_title'              => 'chrisk.app',
+    'blog_title'              => 'Christoph Kappestein | Blog',
 
     // the default author of the blog posts
     'blog_author_name'        => 'chriskapp',
