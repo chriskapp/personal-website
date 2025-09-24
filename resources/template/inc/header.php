@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Christoph Kappestein</title>
+    <title><?php echo $title ?? 'Christoph Kappestein'; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="psx" />
-    <meta name="description" content="Personal website about Christoph Kappestein" />
+    <meta name="description" content="<?php echo $description ?? 'Software developer, API-enthusiast & open source contributor'; ?>" />
     <meta name="fediverse:creator" content="@chriskapp@phpc.social">
     <link rel="icon" href="<?php echo $base; ?>/img/favicon.ico" type="image/x-icon" />
     <link href="<?php echo $base; ?>/css/bootstrap.min.css" rel="stylesheet" media="screen">
