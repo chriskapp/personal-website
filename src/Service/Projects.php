@@ -8,9 +8,9 @@ class Projects
     {
         return [
             'about' => [
-                'Hello, my name is Christoph, I\'am a software developer and I like to build and innovate solutions for the API ecosystem using type-safe/oop languages like PHP, TypeScript and Java.',
-                'I\'am the head developer behind the <a href="https://apioo.de/">Apioo-Project</a> which is a collection of API related projects to challenge the current API landscape and to move to a connected future.',
-                'Please take a look at my website <a href="https://chrisk.app/">chrisk.app</a> to get an overview about all my projects. I am working as team lead software developer at <a href="https://artemeon.de/">Artemeon</a> where we build RegTech solutions for the financial and insurance sector. If you are a headhunter please <a href="https://chrisk.app/headhunter">click here</a> to contact me.',
+                'Hello, my name is Christoph, I am a software developer and I like to build and innovate solutions for the API ecosystem using type-safe/oop languages like PHP, TypeScript and Java.',
+                'Born in 1986 I have witnessed the early fun days of the internet and I believe that the internet should be open and decentralized, my open source projects are a small contribution to this vision. I am the founder behind the <a href="https://apioo.de/">Apioo-Project</a> which is a collection of API related projects to challenge the current API landscape and to move to a connected future.',
+                'Please take a look at my website <a href="https://chrisk.app/">chrisk.app</a> to get an overview about all my projects. I am working as lead solution architect at <a href="https://artemeon.de/">Artemeon</a> where we build RegTech solutions for the financial and insurance sector. If you are a headhunter please <a href="https://chrisk.app/headhunter">click here</a> to contact me.',
             ],
             'projects' => [
                 'opensource' => [
