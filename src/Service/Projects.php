@@ -183,6 +183,12 @@ class Projects
                         'href' => 'https://github.com/chriskapp',
                         'description' => 'Github account',
                     ],
+                    [
+                        'name' => 'Steam',
+                        'status' => 1,
+                        'href' => 'https://steamcommunity.com/id/chriskapp',
+                        'description' => 'Steam account',
+                    ],
                 ],
             ],
         ];
