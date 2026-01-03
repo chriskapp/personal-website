@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Service\Projects;
+use App\Service\Profile;
 use PSX\Api\Attribute\Get;
 use PSX\Api\Attribute\Path;
 use PSX\Framework\Controller\ControllerAbstract;
@@ -11,19 +11,20 @@ use PSX\Framework\Loader\ReverseRouter;
 
 class Text extends ControllerAbstract
 {
-    private Projects $projects;
-    private ReverseRouter $reverseRouter;
-
-    public function __construct(Projects $projects, ReverseRouter $reverseRouter)
+    public function __construct(private Profile $profile, private ReverseRouter $reverseRouter)
     {
-        $this->projects = $projects;
-        $this->reverseRouter = $reverseRouter;
     }
 
     #[Get]
     #[Path('/humans.txt')]
     public function show(): Template
     {
-        return new Template($this->projects->getProjects(), __DIR__ . '/../../resources/template/index.txt.php', $this->reverseRouter);
+        $data = [
+            'title' => 'Christoph Kappestein',
+            'canonical' => $this->reverseRouter->getUrl([self::class, 'show']),
+            'profile' => $this->profile->getProfile(),
+        ];
+
+        return new Template($data, __DIR__ . '/../../resources/template/index.txt.php', $this->reverseRouter);
     }
 }

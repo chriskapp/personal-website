@@ -1,15 +1,15 @@
 <pre>
 # Christoph Kappestein
 
-<?php foreach($about as $line): ?>
-<?php echo wordwrap($line, 80); ?>
+<?php foreach($profile->about as $line): ?>
+<?php echo wordwrap($line, 120); ?>
 
 
 <?php endforeach; ?>
 
 ## Open-Source:
 
-<?php foreach($projects->opensource as $project): ?>
+<?php foreach($profile->projects->opensource as $project): ?>
   * <?php echo $project->name; ?> (<?php echo $project->href; ?>)
     <?php echo $project->description; ?>
 
@@ -18,7 +18,7 @@
 
 ## Github:
 
-<?php foreach($projects->github as $project): ?>
+<?php foreach($profile->projects->github as $project): ?>
   * <?php echo $project->name; ?> (<?php echo $project->href; ?>)
     <?php echo $project->description; ?>
 
@@ -27,7 +27,7 @@
 
 ## Projects:
 
-<?php foreach($projects->projects as $project): ?>
+<?php foreach($profile->projects->projects as $project): ?>
   * <?php echo $project->name; ?> (<?php echo $project->href; ?>)
     <?php echo $project->description; ?>
 
@@ -36,7 +36,7 @@
 
 ## Social:
 
-<?php foreach($projects->social as $project): ?>
+<?php foreach($profile->projects->social as $project): ?>
   * <?php echo $project->name; ?> (<?php echo $project->href; ?>)
     <?php echo $project->description; ?>
 

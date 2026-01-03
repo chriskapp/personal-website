@@ -16,20 +16,20 @@ use PSX\Http\Exception\BadRequestException;
 
 class Headhunter extends ControllerAbstract
 {
-    private ReverseRouter $reverseRouter;
-    private ConfigInterface $config;
-
-    public function __construct(ReverseRouter $reverseRouter, ConfigInterface $config)
+    public function __construct(private ReverseRouter $reverseRouter, private ConfigInterface $config)
     {
-        $this->reverseRouter = $reverseRouter;
-        $this->config = $config;
     }
 
     #[Get]
     #[Path('/headhunter')]
     public function show(): Template
     {
-        return new Template([], __DIR__ . '/../../resources/template/headhunter.php', $this->reverseRouter);
+        $data = [
+            'title' => 'Headhunter | Christoph Kappestein',
+            'canonical' => $this->reverseRouter->getUrl([self::class, 'show']),
+        ];
+
+        return new Template($data, __DIR__ . '/../../resources/template/headhunter.php', $this->reverseRouter);
     }
 
     #[Post]

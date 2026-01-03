@@ -10,17 +10,19 @@ use PSX\Framework\Loader\ReverseRouter;
 
 class Imprint extends ControllerAbstract
 {
-    private ReverseRouter $reverseRouter;
-
-    public function __construct(ReverseRouter $reverseRouter)
+    public function __construct(private ReverseRouter $reverseRouter)
     {
-        $this->reverseRouter = $reverseRouter;
     }
 
     #[Get]
     #[Path('/imprint')]
     public function show(): Template
     {
-        return new Template([], __DIR__ . '/../../resources/template/imprint.php', $this->reverseRouter);
+        $data = [
+            'title' => 'Imprint | Christoph Kappestein',
+            'canonical' => $this->reverseRouter->getUrl([self::class, 'show']),
+        ];
+
+        return new Template($data, __DIR__ . '/../../resources/template/imprint.php', $this->reverseRouter);
     }
 }
