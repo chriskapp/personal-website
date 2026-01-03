@@ -11,6 +11,7 @@
     <link href="<?php echo $base; ?>/css/default.css" rel="stylesheet" media="screen" />
     <link type="text/plain" rel="author" href="<?php echo $url ?>humans.txt" />
     <link type="application/atom+xml" rel="alternate" href="<?php echo $router->getUrl([\Chriskapp\Blog\Controller\Feed::class, 'show']); ?>" />
+    <link rel="canonical" href="<?php echo $canonical ?? $url ?>" />
     <script>
       var _paq = window._paq = window._paq || [];
       _paq.push(['trackPageView']);
