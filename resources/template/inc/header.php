@@ -24,7 +24,7 @@
           g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
       })();
     </script>
-    <?php if(isset($about)): ?><script async defer src="https://buttons.github.io/buttons.js"></script><?php endif; ?>
+    <?php if(isset($profile)): ?><script async defer src="https://buttons.github.io/buttons.js"></script><?php endif; ?>
 </head>
 <body>
 
