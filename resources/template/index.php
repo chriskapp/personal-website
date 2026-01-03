@@ -89,7 +89,7 @@
     "url": "https://chrisk.app",
     "name": "Christoph Kappestein",
     "image": "https://chrisk.app/img/avatar_nature.jpg",
-    "description": "<?php echo $about[0] ?? ''; ?>",
+    "description": "<?php echo $profile->about[0] ?? ''; ?>",
     "givenName": "Christoph",
     "familyName": "Kappestein",
     "jobTitle": "Developer",
