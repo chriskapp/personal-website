@@ -1,6 +1,100 @@
 <?xml version="1.0"?>
 <feed>
     <entry>
+        <title>Exploring solutions to build a secure plugin system for PHP apps</title>
+        <updated>2026-04-12T21:17:00Z</updated>
+        <summary>
+            In this post I like to go through solutions which can be used to build a secure plugin system for PHP apps
+        </summary>
+        <category term="php" />
+        <category term="sandbox" />
+        <category term="api" />
+        <content type="html"><![CDATA[
+
+<p>Cloudflare has recently released <a href="https://github.com/emdash-cms/emdash">EmDash</a> which is marketed as
+secure <a href="https://wordpress.org/">WordPress</a> alternative. The main selling point is that EmDash is more secure
+since it does not execute plugins in the main app like WordPress does, in WordPress a plugin can easily access every
+table so that a single malicious plugin can corrupt your complete website, since in the end a plugin is only PHP code
+which gets included to the main app. This is indeed a problem and many security issues are introduced due to plugins. In
+this post I like to discover current solutions and ideas how we could build a secure plugin system.</p>
+
+<p>In general plugin systems are a central part of many projects which allow users to customize or extend specific
+parts of an app. Especially for open-source projects it is a great way to build larger ecosystems, because of this
+building a secure plugin system is an important part for many systems. It of course also depends on the size of the
+project and for small projects it is perfectly fine to simply include PHP files as plugin. Let's start by looking into
+available solutions:</p>
+
+<h2>Scripting language</h2>
+
+<p>While PHP itself is already a scripting language there are extensions to execute another scripting language within
+PHP. One approach which <a href="https://www.mediawiki.org/">Wikipedia</a> has choosen is the integration of
+<a href="https://www.mediawiki.org/wiki/Lua/Overview">LUA</a> as scripting language for plugins. They have also
+developed the <a href="https://pecl.php.net/package/LuaSandbox">LuaSandbox</a> PHP extensions to control CPU and memory
+limits for script execution.</p>
+
+<p>The <a href="https://www.php.net/manual/en/book.v8js.php">v8js</a> PHP extension integrates the <a href="https://v8.dev/">V8</a>
+JavaScript engine. This is a heavy solution since integrating the v8 engine comes with additional complexity, since
+your users need to install this additional extension which makes setup more complicated.</p>
+
+<p>Recently I have found <a href="https://github.com/aheinze/ScriptLite">ScriptLite</a> which executes a subset of
+ECMAScript but without the need to include V8 since it actually parses and executes the ECMAScript in PHP. This looks
+promising, but it is a very new project so we need to wait and see how it matures.</p>
+
+<h2>WASM</h2>
+
+In theory WASM would be the perfect solution, we can compile code from different programming languages into WASM and
+then run this safely in our app, like it is also executed in the browser. But unfortunately this is currently only in
+theory since there are many details missing for example there is no easy way to share complex data structures like
+strings, arrays or objects. The PHP ecosystem has currently also no active maintained extension to run WASM code. So in
+the future this could be a great way but the ecosystem still needs to evolve.</p>
+
+<h2>DSL</h2>
+
+<p>Besides integrating an existing scripting language an alternative solution would be to build a custom DSL, which your
+users can use to customize the app. There are tools like <a href="https://www.antlr.org/">ANTLR</a> which really help
+to develop such custom DSLs but this is of course also a complex task and this makes only sense if you build a domain
+specific language and not a general programming language, since in this case you would be better off using an existing
+scripting language.</p>
+
+<h2>Transpiler</h3>
+
+<p>A transpiler parses PHP code and removes from the AST all dangerous code so that you (in theory) only execute a safe
+sub-set of PHP. I have also built such a <a href="https://github.com/apioo/psx-sandbox">Transpiler</a> but in the end
+this is of course also not safe and still a security risk since there will be always security issues where the
+transpiler does not correctly sanitize the code.</p>
+
+<h2>REST API</h2>
+
+<p>Instead of running your plugin inside your code with this idea a plugin is a small service which provides a REST API
+to handle the logic. This is really secure since the plugin runs in a complete separate environment without access to
+the database or filesystem. This is also used by Shopify and I have recently found <a href="https://wp-apps.org/">WPApps</a>
+which brings this idea to WordPress. But of course this setup is more complex since you now need to host every plugin.</p>
+
+<h2>Conclusion</h2>
+
+<p>To reference back to EmDash and WordPress, if PHP would have a stable scripting language the WordPress plugin system
+would be (maybe) in a better state, since it could be used for safe execution of such plugins. From the projects we can also see
+that there is a demand. There are probably also many closed-source apps which have this requirement. I think the PHP
+ecosystem would greatly benefit from a solid and stable scripting language to run untrusted code.</p>
+
+<p>Looking into the future if such a scripting language evolves we may also create a PSR standard for script execution.
+I.e. we could define a simple interface and different environments could provide different implementations to enable
+script execution.</p>
+
+<pre><code>interface ScriptEngineInterface {
+
+    /**
+     * Executes the provided script code
+     */
+    public function execute(string $code, Context $context): mixed;
+
+}</code></pre>
+
+<p>This is of course only a rough idea, but it would be a great step forward to build more secure systems.</p>
+
+]]></content>
+    </entry>
+    <entry>
         <title>Matomo setup Auto-Archiving with Docker</title>
         <updated>2025-09-21T20:32:00Z</updated>
         <summary>
