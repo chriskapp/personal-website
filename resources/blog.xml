@@ -1,6 +1,76 @@
 <?xml version="1.0"?>
 <feed>
     <entry>
+        <title>Why AI Development Needs Frameworks Instead of a CLI</title>
+        <updated>2026-05-24T12:03:00Z</updated>
+        <summary>
+            We have recently released the next major version 7.0 of Fusio. In this post I like to share more high-level
+            thoughts on the current API landscape and how we can integrate useful AI capabilities.
+        </summary>
+        <category term="fusio" />
+        <category term="api" />
+        <category term="rest" />
+        <category term="ai" />
+        <category term="agent" />
+        <category term="api-management" />
+        <category term="api-gateway" />
+        <category term="backend" />
+        <content type="html"><![CDATA[
+
+<p>We are living through a massive, chaotic shift in how software is built. Over the past few years, the narrative
+around AI in development has been hyper-focused on code generation-LLMs writing raw scripts, copilots autocomplete-ing
+functions, and developers spending half their day inside a terminal managing complex AI toolchains.</p>
+
+<p>But as a maintainer who has spent years thinking about API design, infrastructure stability, and governance, I keep
+coming back to a central problem: The current CLI-centric approach to AI development is fundamentally fragile.</p>
+
+<p>We all know LLMs hallucinate. They make subtle architectural mistakes, forget security edge cases, and produce
+non-deterministic code. When you give an AI agent raw, unconstrained access to a codebase via a CLI or file editor, you
+are asking for trouble in an enterprise environment. It is incredibly hard to validate, audit, and constrain what that
+agent is doing.</p>
+
+<h2>The Case for Constrained Environments</h2>
+
+<p>I believe the future of AI-driven development isn't about letting a model write raw code into a text file from
+scratch. It's about building tool-based environments where AI can work safely within predefined boundaries.</p>
+
+<p>This is the exact philosophy that drove the architecture of the new Fusio 7.0 release.</p>
+
+<p>Instead of an unconstrained CLI, we took a visual, framework-first approach. In Fusio 7.0, we introduced a visual
+dashboard integrated with an "Architect-Agent." When you give the agent a natural language prompt, it doesn't just spit
+out arbitrary scripts. It interacts with the platform's core building blocks: it triggers structured schema builders,
+creates specific action blocks, and hooks into existing relational structures safely.</p>
+
+<p>For example, if you tell the agent to spin up a new data endpoint, it doesn't try to reinvent user management or
+clutter your database with messy redundant tables - it abides by the platform's strict rules, automatically mapping
+foreign keys directly to the system's core <code>fusio_user</code> table.</p>
+
+<p>By wrapping the AI inside a well-defined UI and runtime engine, we get the best of both worlds:</p>
+
+<ul>
+    <li>The raw speed and accessibility of natural language generation.</li>
+    <li>The absolute safety, predictability, and rate-limiting of a mature API gateway.</li>
+</ul>
+
+<h2>Where Do We Go From Here?</h2>
+
+<p>Honestly, nobody knows exactly what AI development will look like in 5 or 10 years. The tooling is evolving faster
+than our design patterns. Will developers eventually stop writing code entirely, or will we evolve into system
+orchestrators who spend our days defining constraints for autonomous agent fleets?</p>
+
+<p>Right now, it's a blank canvas. But I am betting on frameworks that provide guardrails. If we want AI to build
+production-grade, enterprise-ready infrastructure, we have to stop treating it like a rogue developer with a terminal
+prompt and start providing it with an optimized, secure workbench.</p>
+
+<p>If you want to see how we are putting these thoughts into practice, I just published a deep dive on the official
+project blog covering all the technical updates, including our provider-agnostic local LLM (Ollama) support and
+enterprise commit logs.</p>
+
+<p>👉 Read the full launch details here: <a href="https://www.fusio-project.org/blog/post/fusio-7.0-released">Fusio 7.0 Released</a></p>
+
+    ]]></content>
+    </entry>
+    <entry>
         <title>Exploring solutions to build a secure plugin system for PHP apps</title>
         <updated>2026-04-12T21:17:00Z</updated>
         <summary>
