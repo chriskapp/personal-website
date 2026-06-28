@@ -4,6 +4,9 @@ namespace App\Service;
 
 class Profile
 {
+    /**
+     * @return array<string, mixed>
+     */
     public function getProfile(): array
     {
         return [
