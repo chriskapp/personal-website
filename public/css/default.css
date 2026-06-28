@@ -19,6 +19,14 @@ h2
     border-bottom:1px solid #999;
 }
 
+h3
+{
+    padding:8px;
+    font-weight:normal;
+    font-size:1em;
+    border-bottom:1px solid #999;
+}
+
 p
 {
 }
