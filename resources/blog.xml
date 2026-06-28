@@ -2,7 +2,7 @@
 <feed>
     <entry>
         <title>Structured output and the JSON Schema dilemma</title>
-        <updated>2026-06-28T11:33:00Z</updated>
+        <updated>2026-06-28T11:35:00Z</updated>
         <summary>
             In this post I like to describe the current dilemma of using JSON Schema for structured AI outputs and how
             TypeSchema can be used as a clean, alternative data-modeling layer to generate both native DTOs and
@@ -29,7 +29,7 @@ translation layers.</p>
 <p>The reality is that JSON Schema was never designed for code generation or clean data modeling. It was designed to
 validate and describe almost any arbitrary, dynamic JSON structure.</p>
 
-<h3>The Validation vs. Modeling Problem</h3>
+<h2>The Validation vs. Modeling Problem</h2>
 
 <p>Because JSON Schema focuses heavily on flexible validation rather than structural modeling, it contains complexity.
 This becomes obvious if you look at advanced keywords like <code>if</code>, <code>then</code>, <code>else</code>, or
@@ -45,21 +45,21 @@ reliably generate clean SDKs and server stubs. To solve this, OpenAPI had to def
 developers need to turn that output into strict types in their codebases. Full JSON Schema is simply the wrong tool for
 this job, which is exactly why every AI vendor is forced to trim it down into their own custom, incompatible variants.</p>
 
-<h3>A Cleaner Path Forward: <a href="https://typeschema.org/">TypeSchema</a></h3>
+<h2>A Cleaner Path Forward: <a href="https://typeschema.org/">TypeSchema</a></h2>
 
 <p>The software world would be a much easier place if we could all rely on a single, clean specification built from the
 ground up for data modeling. Of course, JSON Schema is established and TypeSchema isn't here to replace it overnight.
 Instead, it serves as an elegant alternative, a high-level, developer-friendly modeling layer that sits seamlessly
 between your code and the AI ecosystem.</p>
 
-<h4>1. Robust DTO Generation</h4>
+<h3>1. Robust DTO Generation</h3>
 
 <p>First and foremost, TypeSchema is built for code generation. From a single schema definition, you can instantly
 generate clean, strongly-typed Data Transfer Objects (DTOs) for almost any popular programming language, including
 TypeScript, PHP, Python, Java, Go, Rust, C#, and more. This means the exact same definition that powers your backend
 validation also generates the models your developers use every day.</p>
 
-<h4>2. Tailored AI Schema Targets</h4>
+<h3>2. Tailored AI Schema Targets</h3>
 
 <p>On top of native DTO generation, TypeSchema acts as a smart cross-compiler for the fragmented AI landscape. Instead
 of manually wrestling with the quirky constraints of every LLM provider, you maintain your models in TypeSchema and
@@ -148,7 +148,7 @@ enterprise commit logs.</p>
     </entry>
     <entry>
         <title>Exploring solutions to build a secure plugin system for PHP apps</title>
-        <updated>2026-04-12T21:17:00Z</updated>
+        <updated>2026-04-12T21:19:00Z</updated>
         <summary>
             In this post I like to go through solutions which can be used to build a secure plugin system for PHP apps
         </summary>
@@ -202,7 +202,7 @@ to develop such custom DSLs but this is of course also a complex task and this m
 specific language and not a general programming language, since in this case you would be better off using an existing
 scripting language.</p>
 
-<h2>Transpiler</h3>
+<h2>Transpiler</h2>
 
 <p>A transpiler parses PHP code and removes from the AST all dangerous code so that you (in theory) only execute a safe
 sub-set of PHP. I have also built such a <a href="https://github.com/apioo/psx-sandbox">Transpiler</a> but in the end
