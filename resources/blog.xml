@@ -1,8 +1,84 @@
 <?xml version="1.0"?>
 <feed>
     <entry>
+        <title>Structured output and the JSON Schema dilemma</title>
+        <updated>2026-06-28T11:33:00Z</updated>
+        <summary>
+            In this post I like to describe the current dilemma of using JSON Schema for structured AI outputs and how
+            TypeSchema can be used as a clean, alternative data-modeling layer to generate both native DTOs and
+            vendor-specific schemas.
+        </summary>
+        <category term="type-schema" />
+        <category term="json-schema" />
+        <category term="ai" />
+        <category term="agent" />
+        <category term="structured-output" />
+        <category term="data-model" />
+        <content type="html"><![CDATA[
+
+<p>We are currently seeing a push toward structured outputs in the AI landscape. Every major LLM provider now
+allows you to enforce that a model returns a response matching a specific JSON structure. This is a game-changer for
+building reliable AI agents and integrations. However, beneath the surface, we are running into a familiar dilemma:
+the reliance on JSON Schema.</p>
+
+<p>If you look closely at how different AI companies implement structured outputs, you will notice a trend. Almost
+every provider has basically invented its own distinct flavor or subset of JSON Schema. OpenAI has specific constraints
+on what keywords are supported, Anthropic does things slightly differently, and tooling providers are left writing
+translation layers.</p>
+
+<p>The reality is that JSON Schema was never designed for code generation or clean data modeling. It was designed to
+validate and describe almost any arbitrary, dynamic JSON structure.</p>
+
+<h3>The Validation vs. Modeling Problem</h3>
+
+<p>Because JSON Schema focuses heavily on flexible validation rather than structural modeling, it contains complexity.
+This becomes obvious if you look at advanced keywords like <code>if</code>, <code>then</code>, <code>else</code>, or
+<code>dependencies</code>. While these are powerful for asserting runtime rules on a dynamic JSON payload, they are not
+optimal when you try to translate a schema into clean, typed programming structures like an object, class, or record.</p>
+
+<p>We have actually seen this exact scenario play out before in the API space. When the OpenAPI specification was
+gaining adoption, the maintainers realized that the full JSON Schema specification was simply too loose and complex to
+reliably generate clean SDKs and server stubs. To solve this, OpenAPI had to define a constrained subset of JSON Schema
+(historically called the OpenAPI Schema Object) just to make data modeling and code generation predictable.</p>
+
+<p>History is repeating itself with AI structured outputs. LLMs need a clear, deterministic structure to target, and
+developers need to turn that output into strict types in their codebases. Full JSON Schema is simply the wrong tool for
+this job, which is exactly why every AI vendor is forced to trim it down into their own custom, incompatible variants.</p>
+
+<h3>A Cleaner Path Forward: <a href="https://typeschema.org/">TypeSchema</a></h3>
+
+<p>The software world would be a much easier place if we could all rely on a single, clean specification built from the
+ground up for data modeling. Of course, JSON Schema is established and TypeSchema isn't here to replace it overnight.
+Instead, it serves as an elegant alternative, a high-level, developer-friendly modeling layer that sits seamlessly
+between your code and the AI ecosystem.</p>
+
+<h4>1. Robust DTO Generation</h4>
+
+<p>First and foremost, TypeSchema is built for code generation. From a single schema definition, you can instantly
+generate clean, strongly-typed Data Transfer Objects (DTOs) for almost any popular programming language, including
+TypeScript, PHP, Python, Java, Go, Rust, C#, and more. This means the exact same definition that powers your backend
+validation also generates the models your developers use every day.</p>
+
+<h4>2. Tailored AI Schema Targets</h4>
+
+<p>On top of native DTO generation, TypeSchema acts as a smart cross-compiler for the fragmented AI landscape. Instead
+of manually wrestling with the quirky constraints of every LLM provider, you maintain your models in TypeSchema and
+automatically export them to specific target environments using dedicated compilers like <code>jsonschema-openai</code>
+or <code>jsonschema-anthropic</code>.</p>
+
+<p>By using TypeSchema as your single source of truth, you bridge the gap between your application code and your AI
+agents. You get clean, deterministic classes and types for your own codebase, while remaining effortlessly compatible
+with every major LLM provider.</p>
+
+<p>Structured output is the key to making LLMs truly useful in production software. By moving past the JSON Schema
+dilemma and embracing a modeling-first approach, we can finally stop writing endless translation layers and focus on
+building great features.</p>
+
+    ]]></content>
+    </entry>
+    <entry>
         <title>Why AI Development Needs Frameworks Instead of a CLI</title>
-        <updated>2026-05-24T12:03:00Z</updated>
+        <updated>2026-05-24T13:04:00Z</updated>
         <summary>
             We have recently released the next major version 7.0 of Fusio. In this post I like to share more high-level
             thoughts on the current API landscape and how we can integrate useful AI capabilities.
@@ -17,16 +93,16 @@
         <category term="backend" />
         <content type="html"><![CDATA[
 
-<p>We are living through a massive, chaotic shift in how software is built. Over the past few years, the narrative
-around AI in development has been hyper-focused on code generation-LLMs writing raw scripts, copilots autocomplete-ing
-functions, and developers spending half their day inside a terminal managing complex AI toolchains.</p>
+<p>We are living through a shift how software is built. Over the past few years, the narrative around AI in development
+has been focused on code generation-LLMs writing scripts, autocomplete-ing functions, and developers spending their day
+inside a terminal managing complex AI toolchains.</p>
 
 <p>But as a maintainer who has spent years thinking about API design, infrastructure stability, and governance, I keep
 coming back to a central problem: The current CLI-centric approach to AI development is fundamentally fragile.</p>
 
 <p>We all know LLMs hallucinate. They make subtle architectural mistakes, forget security edge cases, and produce
-non-deterministic code. When you give an AI agent raw, unconstrained access to a codebase via a CLI or file editor, you
-are asking for trouble in an enterprise environment. It is incredibly hard to validate, audit, and constrain what that
+non-deterministic code. When you give an AI agent raw, unconstrained access to a codebase via a CLI or file editor,
+there is a risk that it breaks your code. It is incredibly hard to validate, audit, and constrain what that
 agent is doing.</p>
 
 <h2>The Case for Constrained Environments</h2>
