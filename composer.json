@@ -3,7 +3,7 @@
     "php": ">=8.4",
     "ext-dom": "*",
     "psx/framework": "^8.0",
-    "firebase/php-jwt": "^6.10",
+    "firebase/php-jwt": "^7.0",
     "chriskapp/blog": "^0.2"
   },
   "require-dev": {
